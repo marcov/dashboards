@@ -1,0 +1,143 @@
+#- name: example_global_value
+#  path: $.counter
+#  labels:
+#    environment: beta # static label
+
+#- name: station_Date
+#  path: $.stationDate
+
+#- name: station_Time
+#  path: $.stationTime
+
+- name: outside_Temp
+  path: $.outsideTemp
+
+- name: hi_Outside_Temp
+  path: $.hiOutsideTemp
+
+# - name: hi_Outside_TempTime
+#  path: $.hiOutsideTempTime
+
+- name: low_Outside_Temp
+  path: $.lowOutsideTemp
+
+# - name: low_Outside_Temp_Time
+#  path: $.lowOutsideTempTime
+
+- name: outside_Humidity
+  path: $.outsideHumidity
+
+- name: hi_Humidity
+  path: $.hiHumidity
+
+# - name: hi_Hum_Time
+#  path: $.hiHumTime
+
+- name: low_Humidity
+  path: $.lowHumidity
+
+# - name: low_Hum_Time
+#  path: $.lowHumTime
+
+- name: outside_Dew_Pt
+  path: $.outsideDewPt
+
+- name: hi_Dewpoint
+  path: $.hiDewpoint
+
+# - name: hi_Dewpoint_Time
+#  path: $.hiDewpointTime
+
+- name: low_Dewpoint
+  path: $.lowDewpoint
+
+#- name: low_Dewpoint_Time
+#  path: $.lowDewpointTime
+
+- name: wind_Chill
+  path: $.windChill
+
+- name: low_Windchill
+  path: $.lowWindchill
+
+#- name: low_Windchill_Time
+#  path: $.lowWindchillTime
+
+- name: outside_Heat_Index
+  path: $.outsideHeatIndex
+
+- name: hi_Heatindex
+  path: $.hiHeatindex
+
+#- name: hi_Heatindex_Time
+#  path: $.hiHeatindexTime
+
+- name: wind_Speed
+  path: $.windSpeed
+
+- name: hi_Wind_Speed
+  path: $.hiWindSpeed
+
+#- name: hi_Wind_Speed_Time
+#  path: $.hiWindSpeedTime
+
+- name: interval_Avg_Wind_Speed
+  path: $.intervalAvgWindSpeed
+
+- name: wind_Direction_Degrees
+  path: $.windDirectionDegrees
+
+#- name: wind_Direction
+#  path: $.windDirection
+
+- name: barometer
+  path: $.barometer
+
+# - name: barom_trend
+#  path: $.baromtrend
+
+- name: hi_Barometer
+  path: $.hiBarometer
+
+#- name: hi_Barometer_Time
+#  path: $.hiBarometerTime
+
+- name: low_Barometer
+  path: $.lowBarometer
+
+#- name: low_Barometer_Time
+#  path: $.lowBarometerTime
+
+- name: daily_Rain
+  path: $.dailyRain
+
+- name: storm_Rain
+  path: $.stormRain
+
+- name: monthly_Rain
+  path: $.monthlyRain
+
+- name: total_Rain
+  path: $.totalRain
+
+- name: rain_Rate
+  path: $.rainRate
+
+# - name: hi_Rain_Rate
+#  path: $.hiRainRate
+
+#- name: hi_Rain_Rate_Time
+#  path: $.hiRainRateTime
+
+- name: wind_Gust_Speed
+  path: $.windGustSpeed
+
+# - name: wind_Beaufort_Scale
+#  path: $.windBeaufortScale
+
+- name: apparent_Temp
+  path: $.apparentTemp
+
+- name: solar_Rad
+  path: $.solarRad
+

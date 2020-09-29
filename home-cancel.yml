@@ -1,0 +1,15 @@
+#- name: example_global_value
+#  path: $.counter
+#  labels:
+#    environment: beta # static label
+
+
+- name: home_energy_pulse_counter
+  path: $.pulseCounter
+
+- name: home_energy_time_since_last_pulse
+  path: $.timeSincePulse
+
+- name: home_energy_time_between_pulses
+  path: $.timeBetweenPulses
+
