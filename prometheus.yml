@@ -32,6 +32,12 @@ scrape_configs:
     static_configs:
     - targets: ['localhost:7980']
 
+  - job_name: 'meteo-villa'
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+    - targets: ['localhost:7990']
+
   - job_name: 'home-cancel'
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
