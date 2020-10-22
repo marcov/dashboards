@@ -1,0 +1,5 @@
+THIS IS WRONG, deleted everything:
+curl -X POST -g 'http://localhost:9090/api/v1/admin/tsdb/delete_series?match[]=home_energy_pulse_counter&match[]={instance="localhost:7990"}'
+
+This is Correct:
+curl -X POST -g 'http://localhost:9090/api/v1/admin/tsdb/delete_series?match[]={instance="localhost:7981",job="meteo-villa"}'

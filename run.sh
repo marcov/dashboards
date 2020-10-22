@@ -47,7 +47,7 @@ docker run \
 	--rm -d \
 	-v "${scriptDir}/${realtimeJsonConfig}":/config.yml \
 	--network=container:nginx \
-	--name=json_fiobbio \
+	--name=meteo_fiobbio_exporter \
 	quay.io/prometheuscommunity/json-exporter \
 	\
 	--port 7979 http://meteo.fiobbio.com/realtime.json /config.yml \
@@ -56,7 +56,7 @@ docker run \
 	--rm -d \
 	-v "${scriptDir}/${realtimeJsonConfig}":/config.yml \
 	--network=container:nginx \
-	--name=json_misma \
+	--name=meteo_misma_exporter \
 	quay.io/prometheuscommunity/json-exporter \
 	\
 	--port 7980 http://meteo.fiobbio.com/misma/realtime.json /config.yml \
@@ -65,16 +65,25 @@ docker run \
 	--rm -d \
 	-v "${scriptDir}/${realtimeJsonConfig}":/config.yml \
 	--network=container:nginx \
-	--name=json_villa \
+	--name=meteo_villa_exporter \
 	quay.io/prometheuscommunity/json-exporter \
 	\
 	--port 7990 http://villameteo.fiobbio.com/weather/realtime.json /config.yml \
 
 docker run \
 	--rm -d \
+	-v "${scriptDir}/${realtimeJsonConfig}":/config.yml \
+	--network=container:nginx \
+	--name=meteo_lecco_exporter \
+	quay.io/prometheuscommunity/json-exporter \
+	\
+	--port 7991 http://leccometeo.fiobbio.com:81/weather/realtime.json /config.yml \
+
+docker run \
+	--rm -d \
 	-v "${scriptDir}"/home-cancel.yml:/config.yml \
 	--network=container:nginx \
-	--name=json_home \
+	--name=energy_meter_exporter \
 	quay.io/prometheuscommunity/json-exporter \
 	\
 	--port 7981 http://jak.sba.lat/cancel/jsonData /config.yml \
