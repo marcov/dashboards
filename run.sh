@@ -98,5 +98,21 @@ docker run \
 	\
 	--path.rootfs=/host
 
+ docker run \
+ 	--rm -d \
+	--volume=/:/rootfs:ro \
+	--volume=/var/run:/var/run:ro \
+	--volume=/sys:/sys:ro \
+	--volume=/var/lib/docker/:/var/lib/docker:ro \
+	--volume=/dev/disk/:/dev/disk:ro \
+	\
+	--network=container:nginx \
+	\
+	--device=/dev/kmsg \
+	--privileged \
+	\
+	--name=cadvisor \
+	gcr.io/cadvisor/cadvisor:v0.36.0
+
 touch "$scriptCompleted"
 exit 0
