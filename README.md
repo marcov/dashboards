@@ -12,6 +12,11 @@ Auto startup: add the metadata key `startup-script` with this content:
 #!/bin/sh
 /bin/sh /home/USERNAME/monitoring/run.sh
 ```
+### Backup volumes
+```
+sudo docker run --rm --volumes-from grafana -v $(pwd):/backup busybox tar cvf /backup/grafana-storage.tar /var/lib/grafana
+sudo docker run --rm --volumes-from prom -v $(pwd):/backup busybox tar cvf /backup/prometheus.tar /prometheus
+```
 
 ## InfluxDB
 Just a quick test:
