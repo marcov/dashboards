@@ -48,7 +48,7 @@ docker run \
 	-v "${scriptDir}/${realtimeJsonConfig}":/config.yml \
 	--network=container:nginx \
 	--name=meteo_fiobbio_exporter \
-	quay.io/prometheuscommunity/json-exporter \
+	quay.io/prometheuscommunity/json-exporter@sha256:e3b4003cb0694f80e0a9bb47ad5a5a8537faa563c61bc7ac0d410cfbcd5c05e2 \
 	\
 	--port 7979 http://meteo.fiobbio.com/realtime.json /config.yml \
 
@@ -57,7 +57,7 @@ docker run \
 	-v "${scriptDir}/${realtimeJsonConfig}":/config.yml \
 	--network=container:nginx \
 	--name=meteo_misma_exporter \
-	quay.io/prometheuscommunity/json-exporter \
+	quay.io/prometheuscommunity/json-exporter@sha256:e3b4003cb0694f80e0a9bb47ad5a5a8537faa563c61bc7ac0d410cfbcd5c05e2 \
 	\
 	--port 7980 http://meteo.fiobbio.com/misma/realtime.json /config.yml \
 
@@ -66,7 +66,7 @@ docker run \
 	-v "${scriptDir}/${realtimeJsonConfig}":/config.yml \
 	--network=container:nginx \
 	--name=meteo_villa_exporter \
-	quay.io/prometheuscommunity/json-exporter \
+	quay.io/prometheuscommunity/json-exporter@sha256:e3b4003cb0694f80e0a9bb47ad5a5a8537faa563c61bc7ac0d410cfbcd5c05e2 \
 	\
 	--port 7990 http://villameteo.fiobbio.com/weather/realtime.json /config.yml \
 
@@ -75,7 +75,7 @@ docker run \
 	-v "${scriptDir}/${realtimeJsonConfig}":/config.yml \
 	--network=container:nginx \
 	--name=meteo_lecco_exporter \
-	quay.io/prometheuscommunity/json-exporter \
+	quay.io/prometheuscommunity/json-exporter@sha256:e3b4003cb0694f80e0a9bb47ad5a5a8537faa563c61bc7ac0d410cfbcd5c05e2 \
 	\
 	--port 7991 http://leccometeo.fiobbio.com:81/weather/realtime.json /config.yml \
 
@@ -84,7 +84,7 @@ docker run \
 	-v "${scriptDir}"/home-cancel.yml:/config.yml \
 	--network=container:nginx \
 	--name=energy_meter_exporter \
-	quay.io/prometheuscommunity/json-exporter \
+	quay.io/prometheuscommunity/json-exporter@sha256:e3b4003cb0694f80e0a9bb47ad5a5a8537faa563c61bc7ac0d410cfbcd5c05e2 \
 	\
 	--port 7981 http://jak.sba.lat/cancel/jsonData /config.yml \
 
