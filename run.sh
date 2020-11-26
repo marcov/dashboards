@@ -28,10 +28,20 @@ docker run \
 	nginx \
 
 docker run --rm -d \
+        -v grafana-storage:/var/lib/grafana \
+	--network=container:nginx \
+	--env ENABLE_METRICS="true" \
+	--name=grafana-image-renderer \
+	grafana/grafana-image-renderer:latest \
+
+docker run --rm -d \
         -v grafana-storage:/var/lib/grafana -v "${scriptDir}"/grafana.ini:/etc/grafana/grafana.ini \
 	--network=container:nginx \
-	--name=grafana \
-	grafana/grafana \
+        --env GF_RENDERING_SERVER_URL="http://localhost:8081/render" \
+        --env GF_RENDERING_CALLBACK_URL="http://localhost:3000/" \
+        --env GF_LOG_FILTERS="rendering:debug" \
+        --name=grafana \
+        grafana/grafana \
 
 docker run --rm -d \
         -v prometheus:/prometheus -v "${scriptDir}"/prometheus.yml:/etc/prometheus/prometheus.yml \
