@@ -20,110 +20,99 @@ rule_files:
 # Here it's Prometheus itself.
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
- 
-  - job_name: 'prometheus'
-    # Override the global default and scrape targets from this job every 5 seconds.
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['localhost:9090']
 
-  - job_name: 'grafana_metrics'
-    scrape_interval: 15s
-    scrape_timeout: 5s
-    static_configs:
-      - targets: ['localhost:3000']
+# Scrape prometheus 
+#   - job_name: 'prometheus'
+#     # Override the global default and scrape targets from this job every 5 seconds.
+#     scrape_interval: 5s
+#     static_configs:
+#       - targets: ['localhost:9090']
 
-  - job_name: 'meteo-fiobbio'
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['localhost:7979']
+# Scrape Grafana 
+#   - job_name: 'grafana_metrics'
+#     scrape_interval: 15s
+#     scrape_timeout: 5s
+#     static_configs:
+#       - targets: ['localhost:3000']
 
-  - job_name: 'meteo-misma'
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['localhost:7980']
-
-  - job_name: 'meteo-villa'
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['localhost:7990']
-
-  - job_name: 'meteo-lecco'
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['localhost:7991']
+# Scrape meteo
+#   - job_name: 'meteo-fiobbio'
+#     static_configs:
+#     - targets: ['localhost:7979']
+# 
+#   - job_name: 'meteo-misma'
+#     static_configs:
+#     - targets: ['localhost:7980']
+# 
+#   - job_name: 'meteo-villa'
+#     static_configs:
+#     - targets: ['localhost:7990']
+# 
+#   - job_name: 'meteo-lecco'
+#     static_configs:
+#     - targets: ['localhost:7991']
 
   - job_name: 'home-cancel'
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
     static_configs:
-    - targets: ['localhost:7981']
+    #- targets: ['localhost:7981']
+    - targets: ['10.0.0.200']
 
+# Scrape the openwrt router
   - job_name: 'openwrt'
-    #scrape_interval: 2s
     scrape_interval: 15s
-    # metrics_path defaults to '/metrics'
     metrics_path: '/metrics/openwrt'
-    # scheme defaults to 'http'.
     static_configs:
-    - targets: ['jak.sba.lat:80']
+    - targets: ['jak.sba.lat']
 
+# Scrape the xiaomi-openwrt AP
   - job_name: 'xiaomi-openwrt'
     scrape_interval: 15s
-    # metrics_path defaults to '/metrics'
     metrics_path: '/metrics/xiaomi'
-    # scheme defaults to 'http'.
     static_configs:
-    - targets: ['jak.sba.lat:80']
+    - targets: ['jak.sba.lat']
 
-  - job_name: 'dnsmasq'
-    scrape_interval: 15s
-    # metrics_path defaults to '/metrics'
-    metrics_path: '/metrics/dns'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['jak.sba.lat:80']
+#   - job_name: 'dnsmasq'
+#     scrape_interval: 60s
+#     metrics_path: '/metrics/dns'
+#     static_configs:
+#     - targets: ['jak.sba.lat']
+# 
+#   - job_name: 'nginx'
+#     scrape_interval: 60s
+#     metrics_path: '/metrics/nginx'
+#     static_configs:
+#     - targets: ['jak.sba.lat']
 
-  - job_name: 'nginx'
-    scrape_interval: 15s
-    # metrics_path defaults to '/metrics'
-    metrics_path: '/metrics/nginx'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['jak.sba.lat:80']
+#  - job_name: 'nginx-fiobbio'
+#    scrape_interval: 60s
+#    metrics_path: '/metrics/nginx'
+#    scheme: https
+#    static_configs:
+#    - targets: ['meteo.fiobbio.com']
 
-  - job_name: 'nginx-fiobbio'
-    scrape_interval: 15s
-    # metrics_path defaults to '/metrics'
-    metrics_path: '/metrics/nginx'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['meteo.fiobbio.com:80']
+# Scrape this endpoint via node
+#   - job_name: 'nodel-local'
+#     scrape_interval: 15s
+#     metrics_path: '/metrics'
+#     static_configs:
+#     - targets: ['localhost:9100']
 
-  - job_name: 'nodel-local'
-    scrape_interval: 15s
-    # metrics_path defaults to '/metrics'
-    metrics_path: '/metrics'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['localhost:9100']
 
-  - job_name: 'cadvisor-local'
-    scrape_interval: 15s
-    # metrics_path defaults to '/metrics'
-    metrics_path: '/metrics'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['localhost:8080']
+#   - job_name: 'cadvisor-local'
+#     scrape_interval: 15s
+#     metrics_path: '/metrics'
+#     static_configs:
+#     - targets: ['localhost:8080']
+# 
+#   - job_name: 'fiobbio-rpi'
+#     scrape_interval: 60s
+#     metrics_path: '/metrics/node'
+#     scheme: https
+#     static_configs:
+#     - targets: ['meteo.fiobbio.com']
 
-  - job_name: 'fiobbio-rpi'
-    scrape_interval: 15s
-    # metrics_path defaults to '/metrics'
-    metrics_path: '/metrics/node'
-    # scheme defaults to 'http'.
-    static_configs:
-    - targets: ['meteo.fiobbio.com:80']
+#  - job_name: 'grafana-image'
+#    scrape_interval: 60s
+#    metrics_path: '/metrics'
+#    static_configs:
+#    - targets: ['localhost:8081']

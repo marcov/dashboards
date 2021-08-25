@@ -1,0 +1,10 @@
+[Unit]
+After=docker.service media-usb.mount
+
+[Service]
+Type=oneshot
+ExecStart=/home/marco/monitoring/run.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=default.target

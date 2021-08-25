@@ -1,0 +1,18 @@
+# Renew Let's Encrypt SSL certificate
+
+1. Make sure there is no service listening on port 80: disable local nginx / Docker nginx.
+2. Make sure HTTP requests from the public Internet end up on this machine!
+3. Use the DNS tricks below, if renewing the certificate for another hostname / machine (e.g. meteo.fiobbio.com)
+3. Dry run FIRST. Otherwise you will hit rate limits:
+```
+   sudo certbot renew  --logs-dir /tmp --config-dir ~/monitoring/secrets/letsencrypt --work-dir /tmp --standalone --dry-run
+```
+4. Repeat the reqest w/o `--dry-run`.
+
+## DNS tricks if renewing a certificate for another hostname / machine 
+a. Disable the DDNS updater for the hostname you want to renew.
+b. Copy upstream certs here in ~/monitoring/secrets
+c. Disable router port forward to local webserver / grafana webserver
+d. Enable router port forward to this machine, 80 and 443
+e. Update ddns to point to point to this public IP. Clear dnsmasq / nextdns cache.
+   curl -fL "https://dynamicdns.park-your-domain.com/update?host=meteo&domain=fiobbio.com&password=<DDNS-API-PASSWORD>&ip=<PUBLIC-IP-ADDR>"
