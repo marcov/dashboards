@@ -8,6 +8,7 @@
    sudo certbot renew  --logs-dir /tmp --config-dir ~/monitoring/secrets/letsencrypt --work-dir /tmp --standalone --dry-run
 ```
 4. Repeat the reqest w/o `--dry-run`.
+5. Copy the certificate to the real SSL server (e.g. your router handling HTTPS).
 
 ## DNS tricks if renewing a certificate for another hostname / machine 
 a. Disable the DDNS updater for the hostname you want to renew.
